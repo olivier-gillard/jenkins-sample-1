@@ -26,5 +26,14 @@ node () {
 			} 
  		} 
 	}
-}
+	stage ('APP-IC - Deploy Analysis') {
+	withMaven(maven: 'maven') { 
+ 			if(isUnix()) {
+ 				sh "mvn deploy" 
+			} else { 
+ 				bat "mvn deploy" 
+			} 
+ 		} 
+	}
+}deploy
 }
